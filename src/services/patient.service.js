@@ -7,10 +7,23 @@ class PatientService extends Base {
         super(PatientRepository);
         _patientRepository = PatientRepository;
     }
+
     index() {
         return {
             message: 'Patient Service index',
         }
+    }
+
+    async getPatientByName(name) {
+        return await _patientRepository.getPatientByName(name);
+    }
+
+    async getPatientByLastname(lastname) {
+        return await _patientRepository.getPatientByLastname(lastname);
+    }
+
+    async getPatientBySSN(ssn) {
+        return await _patientRepository.getPatientBySSN(ssn);
     }
 }
 

@@ -1,4 +1,13 @@
 module.exports = {
+    Clinic: require('./clinic.model'),
+    ClinicHistory: require('./clinic_history.model'),
+    Expedient: require('./expedient.model'),
+    Hospital: require('./hospital.model'),
+    OfficeClinic: require('./office_clinic.model'),
+    OfficeHospital: require('./office_hospital.model'),
     Patient: require('./patient.model'),
-    Personal: require('./personal.model')
+    PatientHospital: require('./patient_hospital.model'),
+    Personal: require('./personal.model'),
+    PersonalType: require('./personal_type.model'),
+    Speciality: require('./specialty.model')
 };

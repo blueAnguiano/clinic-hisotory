@@ -7,6 +7,12 @@ class PersonalRepository extends BaseRepository {
         super(Personal);
         _personal = Personal;
     }
+
+    async getUserByName(name) {
+
+    }
+
+
 }
 
 module.exports = PersonalRepository;

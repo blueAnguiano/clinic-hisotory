@@ -5,7 +5,7 @@ const cors = require("cors");
 const helmet = require('helmet');
 const compression = require('compression');
 
-module.exports = function ({HomeRoutes}) {
+module.exports = function ({HomeRoutes, PatientRoutes}) {
     const router = express.Router();
     const api = express.Router();
 
@@ -14,6 +14,7 @@ module.exports = function ({HomeRoutes}) {
         .use(cors());
 
     api.use('/home', HomeRoutes);
+    api.use('/patient', PatientRoutes);
 
 
     router.use('/v1/api', api);

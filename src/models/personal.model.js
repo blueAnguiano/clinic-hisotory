@@ -21,4 +21,4 @@ const PersonalSchema = new Schema({
 
 PersonalSchema.plugin(require('mongoose-autopopulate'));
 
-module.exports = mongoose.models('personal', PersonalSchema);
+module.exports = mongoose.model('personal', PersonalSchema);
