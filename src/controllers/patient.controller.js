@@ -7,7 +7,7 @@ class PatientController {
 
     async get(req, res) {
         const {idPatient} = req.params;
-        const patient = await _patientService.findById(idPatient);
+        const patient = await _patientService.get(idPatient);
         return res.send(patient);
     }
 
@@ -45,8 +45,8 @@ class PatientController {
 
     async delete(req, res) {
         const {idPatient} = req.params;
-        const deletePatient = await _patientService.delete(idPatient);
-        return res.send(deletePatient);
+        const deletedPatient = await _patientService.delete(idPatient);
+        return res.send(deletedPatient);
     }
 }
 

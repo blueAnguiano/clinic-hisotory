@@ -7,6 +7,7 @@ const config = require('../config');
 
 //Service
 const {
+    ClinicService,
     HomeService,
     PatientService,
     PersonalService
@@ -14,6 +15,7 @@ const {
 
 //Controllers
 const {
+    ClinicController,
     HomeController,
     PatientController,
     PersonalController
@@ -21,8 +23,10 @@ const {
 
 //Routes
 const {
+    ClinicRoutes,
     HomeRoutes,
     PatientRoutes,
+    PersonalRoutes,
 } = require('../routes/index.routes');
 
 //Models
@@ -41,7 +45,11 @@ const {
 } = require('../models');
 
 //Repositories
-const {PatientRepository, PersonalRepository} = require('../repositories');
+const {
+    ClinicRepository,
+    PatientRepository,
+    PersonalRepository
+} = require('../repositories');
 
 const container = createContainer();
 
@@ -63,17 +71,22 @@ container.register({
     PersonalType: asValue(PersonalType),
     Speciality: asValue(Speciality),
     //Services
+    ClinicService: asClass(ClinicService).singleton(),
     HomeService: asClass(HomeService).singleton(),
     PatientService: asClass(PatientService).singleton(),
     PersonalService: asClass(PersonalService).singleton(),
     //Controllers
+    ClinicController: asClass(ClinicController).singleton(),
     HomeController: asClass(HomeController).singleton(),
     PatientController: asClass(PatientController).singleton(),
     PersonalController: asClass(PersonalController).singleton(),
     //Routes
+    ClinicRoutes: asFunction(ClinicRoutes).singleton(),
     HomeRoutes: asFunction(HomeRoutes).singleton(),
     PatientRoutes: asFunction(PatientRoutes).singleton(),
+    PersonalRoutes: asFunction(PersonalRoutes).singleton(),
     //Repositories
+    ClinicRepository: asClass(ClinicRepository).singleton(),
     PatientRepository: asClass(PatientRepository).singleton(),
     PersonalRepository: asClass(PersonalRepository).singleton()
 });

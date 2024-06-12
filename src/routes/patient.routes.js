@@ -1,5 +1,4 @@
 const {Router} = require('express');
-const UserController = require("express/lib/router");
 
 //Middlewares
 

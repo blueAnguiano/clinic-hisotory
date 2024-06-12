@@ -5,7 +5,7 @@ const cors = require("cors");
 const helmet = require('helmet');
 const compression = require('compression');
 
-module.exports = function ({HomeRoutes, PatientRoutes}) {
+module.exports = function ({HomeRoutes, PatientRoutes, PersonalRoutes, ClinicRoutes}) {
     const router = express.Router();
     const api = express.Router();
 
@@ -13,8 +13,10 @@ module.exports = function ({HomeRoutes, PatientRoutes}) {
         .use(express.json)
         .use(cors());
 
+    api.use('clinic', ClinicRoutes);
     api.use('/home', HomeRoutes);
     api.use('/patient', PatientRoutes);
+    api.use('personal', PersonalRoutes);
 
 
     router.use('/v1/api', api);
