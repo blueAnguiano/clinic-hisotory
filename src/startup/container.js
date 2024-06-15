@@ -53,6 +53,12 @@ const {
 
 const container = createContainer();
 
+console.log('Container');
+
+console.log(`Hola Mundo`);
+
+module.exports = container;
+
 container.register({
     //Configuration
     app: asClass(app).singleton(),
@@ -60,16 +66,16 @@ container.register({
     config: asValue(config),
     //Values
     Clinic: asValue(Clinic),
-    ClinicHistory: asValue(ClinicHistory),
-    Expedient: asValue(Expedient),
-    Hospital: asValue(Hospital),
-    OfficeClinic: asValue(OfficeClinic),
-    OfficeHospital: asValue(OfficeHospital),
+    // ClinicHistory: asValue(ClinicHistory),
+    // Expedient: asValue(Expedient),
+    // Hospital: asValue(Hospital),
+    // OfficeClinic: asValue(OfficeClinic),
+    // OfficeHospital: asValue(OfficeHospital),
     Patient: asValue(Patient),
-    PatientHospital: asValue(PatientHospital),
+    // PatientHospital: asValue(PatientHospital),
     Personal: asValue(Personal),
-    PersonalType: asValue(PersonalType),
-    Speciality: asValue(Speciality),
+    // PersonalType: asValue(PersonalType),
+    // Speciality: asValue(Speciality),
     //Services
     ClinicService: asClass(ClinicService).singleton(),
     HomeService: asClass(HomeService).singleton(),
@@ -90,5 +96,3 @@ container.register({
     PatientRepository: asClass(PatientRepository).singleton(),
     PersonalRepository: asClass(PersonalRepository).singleton()
 });
-
-module.exports = container;

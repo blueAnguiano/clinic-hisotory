@@ -8,6 +8,12 @@ class ClinicService extends Base {
         _clinicRepository = ClinicRepository;
     }
 
+    index() {
+        return {
+            message: 'Hello World'
+        }
+    }
+
     async getClinicByName(name){
         return await _clinicRepository.getClinicByName(name);
     }

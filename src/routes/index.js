@@ -9,14 +9,18 @@ module.exports = function ({HomeRoutes, PatientRoutes, PersonalRoutes, ClinicRou
     const router = express.Router();
     const api = express.Router();
 
+    console.log(`Home Routers: ${HomeRoutes}`);
+
     api
         .use(express.json)
-        .use(cors());
+        .use(cors())
+        .use(helmet())
+        .use(compression());
 
-    api.use('clinic', ClinicRoutes);
+    api.use('/clinic', ClinicRoutes);
     api.use('/home', HomeRoutes);
     api.use('/patient', PatientRoutes);
-    api.use('personal', PersonalRoutes);
+    api.use('/personal', PersonalRoutes);
 
 
     router.use('/v1/api', api);

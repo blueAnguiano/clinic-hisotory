@@ -1,4 +1,4 @@
-const Base = require('base.service');
+const Base = require('./base.service');
 
 let _personalRepository = null;
 
