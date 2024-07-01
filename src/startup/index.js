@@ -1,5 +1,4 @@
 const express = require('express');
-const {listen} = require("express/lib/application");
 
 let _express = null;
 let _config = null;
@@ -12,7 +11,7 @@ class Server {
 
     start() {
         return new Promise(resolve => {
-            _express = listen(_config.PORT, () => {
+            _express.listen(_config.PORT, () => {
                 console.log(`Server is running on port ${_config.PORT}`);
                 resolve();
             })
