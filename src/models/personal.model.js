@@ -6,8 +6,11 @@ const PersonalSchema = new Schema({
     name: {type: String, required: true},
     lastname: {type: String, required: true},
     momLastname: {type: String, required: true},
-    age: {type: Number, required: true},
+    age: {type: Number},
+    birth: {type: Date, required: true},
     address: {type: String, required: true},
+    state: {type: String, required: true},
+    municipal: {type: String, required: true},
     phone: {type: String, required: true},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now},
@@ -18,5 +21,4 @@ const PersonalSchema = new Schema({
 });
 
 PersonalSchema.plugin(require('mongoose-autopopulate'));
-
 module.exports = mongoose.model('Personal', PersonalSchema);

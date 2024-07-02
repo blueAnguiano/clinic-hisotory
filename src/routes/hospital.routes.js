@@ -8,6 +8,8 @@ module.exports = function ({HospitalController}) {
     //getters
     router.get('', HospitalController.getAll);
     router.get('/:idHospital', HospitalController.get);
+    router.get('/search/by-name/:name', HospitalController.getByName);
+    router.get('/search/by-state/:state', HospitalController.getByState);
 
     //posts
     router.post('/', HospitalController.create);

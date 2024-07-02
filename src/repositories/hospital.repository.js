@@ -7,11 +7,6 @@ class HospitalRepository extends BaseRepository {
         super(Hospital);
         _hospital = Hospital;
     }
-
-    async getHospitalByName(name) {
-        return await _hospital.findOne({name});
-    }
-
 }
 
 module.exports = HospitalRepository;

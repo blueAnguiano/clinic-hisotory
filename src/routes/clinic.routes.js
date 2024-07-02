@@ -8,7 +8,8 @@ module.exports = function ({ClinicController}) {
     //getters
     router.get('', ClinicController.getAll);
     router.get('/:idClinic', ClinicController.get);
-    router.get('/search/:name', ClinicController.getByName);
+    router.get('/search/by-name/:name', ClinicController.getByName);
+    router.get('/search/by-state/:state', ClinicController.getByState);
 
     //posts
     router.post('/', ClinicController.create);

@@ -21,7 +21,6 @@ class PersonalTypeController {
     }
 
     async create(req, res) {
-        console.log(`Here`);
         const {body} = req;
         const personalType = await _personalTypeService.create(body);
         return res.status(201).send(personalType);

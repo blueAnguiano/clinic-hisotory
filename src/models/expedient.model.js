@@ -17,7 +17,6 @@ const ExpedientSchema = new Schema({
     parent: {
         type: Schema.Types.ObjectId,
         ref: 'Expedient',
-        required: true,
         autopopulate: true
     },
     createdAt: {type: Date, default: Date.now},

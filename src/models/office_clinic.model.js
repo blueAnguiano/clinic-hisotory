@@ -4,7 +4,7 @@ const {Schema} = mongoose;
 
 const OfficeClinicSchema = new Schema({
     clinic: {type: Schema.Types.ObjectId, ref: 'clinic', required: true, autopopulate: true},
-    personal: {type: Schema.Types.ObjectId, ref: 'personal', required: true, autopopulate: true},
+    personal: {type: Schema.Types.ObjectId, ref: 'Personal', required: true, autopopulate: true},
     room: {type: Number, required: true},
     level: {type: Number, required: true},
     scheduleTime: {type: String, required: true},

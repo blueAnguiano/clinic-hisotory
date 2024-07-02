@@ -11,6 +11,14 @@ class Base {
         return await this.model.find({});
     }
 
+    async getByName(name) {
+        return await this.model.find({name: new RegExp(`.*${name}.*`)});
+    }
+
+    async getByState(state) {
+        return await this.model.find({state: new RegExp(`.*${state}.*`)});
+    }
+
     async create(object) {
         return this.model.create(object);
     }

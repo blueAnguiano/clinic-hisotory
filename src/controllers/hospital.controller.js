@@ -20,6 +20,18 @@ class HospitalController {
         return res.send(hospitals);
     }
 
+    async getByName(req, res) {
+        const {name} = req.params;
+        const hospital = await _hospitalService.getByName(name);
+        return res.send(hospital);
+    }
+
+    async getByState(req, res) {
+        const {state} = req.params;
+        const hospital = await _hospitalService.getByState(state);
+        return res.send(hospital);
+    }
+
     async create(req, res) {
         const {body} = req;
         const hospital = await _hospitalService.create(body);

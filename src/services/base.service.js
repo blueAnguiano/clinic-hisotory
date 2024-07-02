@@ -4,12 +4,19 @@ class BaseService {
     }
 
     async get(id) {
-        const data = await this.repository.get(id);
-        return data;
+        return await this.repository.get(id);
     }
 
     async getAll() {
         return await this.repository.getAll();
+    }
+
+    async getByName(name) {
+        return await this.repository.getByName(name);
+    }
+
+    async getByState(state) {
+        return await this.repository.getByState(state);
     }
 
     async create(object) {

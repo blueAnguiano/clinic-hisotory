@@ -7,16 +7,16 @@ module.exports = function ({ClinicHistoryController}) {
 
     //getters
     router.get('', ClinicHistoryController.getAll);
-    router.get('/:idClinic', ClinicHistoryController.get);
+    router.get('/:idClinicHistory', ClinicHistoryController.get);
 
     //posts
     router.post('/', ClinicHistoryController.create);
 
     //putters
-    router.put('/:idClinic', ClinicHistoryController.update);
+    router.put('/:idClinicHistory', ClinicHistoryController.update);
 
     //deletes
-    router.delete('/:idClinic', ClinicHistoryController.delete);
+    router.delete('/:idClinicHistory', ClinicHistoryController.delete);
 
     return router;
 };

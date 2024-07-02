@@ -22,8 +22,13 @@ class ClinicController {
 
     async getByName(req, res) {
         const {name} = req.params;
-        console.log(`getByName: ${name}`);
-        const clinic = await _clinicService.getClinicByName(name);
+        const clinic = await _clinicService.getByName(name);
+        return res.send(clinic);
+    }
+
+    async getByState(req, res) {
+        const {state} = req.params;
+        const clinic = await _clinicService.getByState(state);
         return res.send(clinic);
     }
 

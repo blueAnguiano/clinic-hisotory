@@ -14,9 +14,6 @@ class ClinicService extends BaseService {
         }
     }
 
-    async getClinicByName(name) {
-        return await _clinicRepository.getClinicByName(name);
-    }
 }
 
 module.exports = ClinicService;
