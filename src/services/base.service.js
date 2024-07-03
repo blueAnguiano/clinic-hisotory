@@ -4,26 +4,28 @@ class BaseService {
     }
 
     async get(id) {
-        const data = await this.repository.get(id);
-        return data;
+        return await this.repository.get(id);
     }
 
     async getAll() {
         return await this.repository.getAll();
     }
 
-    async create(entity) {
-        return this.repository.create(entity);
+    async getByName(name) {
+        return await this.repository.getByName(name);
     }
 
-    async update(id, entity) {
-        return this.repository.update(id, entity);
+    async getByState(state) {
+        return await this.repository.getByState(state);
+    }
+
+    async create(object) {
+        return this.repository.create(object);
     }
 
     async delete(id) {
         return this.repository.delete(id);
     }
-
 }
 
 module.exports = BaseService;

@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+
 const {Schema} = mongoose;
 
 const OfficeClinicSchema = new Schema({
     clinic: {type: Schema.Types.ObjectId, ref: 'clinic', required: true, autopopulate: true},
-    personal: {type: Schema.Types.ObjectId, ref: 'personal', required: true, autopopulate: true},
+    personal: {type: Schema.Types.ObjectId, ref: 'Personal', required: true, autopopulate: true},
     room: {type: Number, required: true},
     level: {type: Number, required: true},
     scheduleTime: {type: String, required: true},
@@ -12,4 +13,4 @@ const OfficeClinicSchema = new Schema({
 
 OfficeClinicSchema.plugin(require('mongoose-autopopulate'));
 
-module.exports = mongoose.model('office_clinic', OfficeClinicSchema);
+module.exports = mongoose.model('OfficeClinic', OfficeClinicSchema);

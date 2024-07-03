@@ -1,25 +1,22 @@
 const {Router} = require('express');
 
-//Middlewares
-
-module.exports = ({PatientController}) => {
+module.exports = function ({PatientController}) {
     const router = new Router();
 
+    router.get('/index', PatientController.index);
+
     //getters
-    router.get('', PatientController.getAll)
+    router.get('', PatientController.getAll);
     router.get('/:idPatient', PatientController.get);
 
-    router.post('/:name', PatientController.getByName);
-    router.get('/:lastname', PatientController.getByLastname);
-    router.get('/:ssn', PatientController.getBySSN);
-
     //posts
+    router.post('/', PatientController.create);
 
     //putters
-    router.post('/:idPatient', PatientController.update);
+    router.put('/:idPatient', PatientController.update);
 
     //deletes
-    router.put('/:idPatient', PatientController.delete);
+    router.delete('/:idPatient', PatientController.delete);
 
     return router;
 }

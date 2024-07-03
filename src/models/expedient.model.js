@@ -4,20 +4,19 @@ const {Schema} = mongoose;
 const ExpedientSchema = new Schema({
     patient: {
         type: Schema.Types.ObjectId,
-        ref: 'patient',
+        ref: 'Patient',
         required: true,
         autopopulate: true
     },
     createdBY: {
         type: Schema.Types.ObjectId,
-        ref: 'personal',
+        ref: 'Personal',
         required: true,
         autopopulate: true
     },
     parent: {
         type: Schema.Types.ObjectId,
-        ref: 'expedient',
-        required: true,
+        ref: 'Expedient',
         autopopulate: true
     },
     createdAt: {type: Date, default: Date.now},
@@ -26,4 +25,4 @@ const ExpedientSchema = new Schema({
 
 ExpedientSchema.plugin(require('mongoose-autopopulate'));
 
-module.exports = mongoose.model('expedient', ExpedientSchema);
+module.exports = mongoose.model('Expedient', ExpedientSchema);

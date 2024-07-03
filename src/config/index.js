@@ -3,6 +3,6 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 module.exports = {
-    PORT: process.env.PORT || 5000,
+    PORT: process.env.PORT || 8080,
     MONGODB_URI: process.env.MONGODB_URI
 };

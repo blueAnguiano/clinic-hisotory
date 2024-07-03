@@ -1,30 +1,19 @@
-const Base = require('./base.service');
+const BaseService = require('./base.service');
 
 let _patientRepository = null;
 
-class PatientService extends Base {
+class PatientService extends BaseService {
     constructor({PatientRepository}) {
-        super(PatientRepository);
+        super(PatientRepository)
         _patientRepository = PatientRepository;
     }
 
     index() {
         return {
-            message: 'Patient Service index',
+            message: 'Clinic Service Index',
         }
     }
-
-    async getPatientByName(name) {
-        return await _patientRepository.getPatientByName(name);
-    }
-
-    async getPatientByLastname(lastname) {
-        return await _patientRepository.getPatientByLastname(lastname);
-    }
-
-    async getPatientBySSN(ssn) {
-        return await _patientRepository.getPatientBySSN(ssn);
-    }
 }
+
 
 module.exports = PatientService;

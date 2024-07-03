@@ -7,18 +7,6 @@ class PersonalRepository extends BaseRepository {
         super(Personal);
         _personal = Personal;
     }
-
-    async getPersonalByName(name) {
-        return _personal.findOne({ name });
-    }
-
-    async getPersonalByLastname(lastname) {
-        return _personal.findOne({ lastname });
-    }
-
-    async getPersonalByProfessionalId(professionalId) {
-        return _personal.findOne({ professionalId });
-    }
 }
 
 module.exports = PersonalRepository;

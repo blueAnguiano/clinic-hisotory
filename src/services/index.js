@@ -1,6 +1,15 @@
 module.exports = {
     ClinicService: require('./clinic.service'),
+    ClinicHistoryService: require('./clinic_history.service'),
+    ExpedientService: require('./expedient.service'),
     HomeService: require('./home.service'),
+    HospitalService: require('./hospital.service'),
+    OfficeClinicService: require('./office_clinic.service'),
+    OfficeHospitalService: require('./office_hospital.service'),
     PatientService: require('./patient.service'),
+    PatientHospitalService: require('./patient_hospital.service'),
     PersonalService: require('./personal.service'),
+    PersonalTypeService: require('./personal_type.service'),
+    SpecialtyService: require('./specialty.service'),
+    UserService: require('./user.service'),
 }

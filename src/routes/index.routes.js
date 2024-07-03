@@ -1,6 +1,15 @@
 module.exports = {
     ClinicRoutes: require('./clinic.routes'),
+    ClinicHistoryRoutes: require('./clinic_history.routes'),
+    ExpedientRoutes: require('./expedient.routes'),
     HomeRoutes: require('./home.routes'),
+    HospitalRoutes: require('./hospital.routes'),
+    OfficeClinicRoutes: require('./office_clinic.routes'),
+    OfficeHospitalRoutes: require('./office_hospital.routes'),
     PatientRoutes: require('./patient.routes'),
+    PatientHospitalRoutes: require('./patien_hospital.reoutes'),
     PersonalRoutes: require('./personal.routes'),
+    PersonalTypeRoutes: require('./personal_type.routes'),
+    SpecialtyRoutes: require('./specialty.routes'),
+    UserRoutes: require('./user.routes'),
 };

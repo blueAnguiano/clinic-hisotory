@@ -9,5 +9,6 @@ module.exports = {
     PatientHospital: require('./patient_hospital.model'),
     Personal: require('./personal.model'),
     PersonalType: require('./personal_type.model'),
-    Speciality: require('./specialty.model')
-};
+    Specialty: require('./specialty.model'),
+    User: require('./user.model'),
+}

@@ -1,4 +1,4 @@
-class BaseRepository {
+class Base {
     constructor(model) {
         this.model = model;
     }
@@ -11,18 +11,25 @@ class BaseRepository {
         return await this.model.find({});
     }
 
-    async create(entity) {
-        return this.model.create(entity);
+    async getByName(name) {
+        return await this.model.find({name: new RegExp(`.*${name}.*`)});
     }
 
-    async update(id, entity) {
-        return await this.model.findByIdAndUpdate(id, entity, { new: true });
+    async getByState(state) {
+        return await this.model.find({state: new RegExp(`.*${state}.*`)});
+    }
+
+    async create(object) {
+        return this.model.create(object);
+    }
+
+    async update(id, object) {
+        return await this.model.findByIdAndUpdate(id, object, {new: true});
     }
 
     async delete(id) {
         await this.model.findByIdAndDelete(id);
-        return true;
     }
 }
 
-module.exports = BaseRepository;
+module.exports = Base;

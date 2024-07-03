@@ -5,22 +5,44 @@ const cors = require("cors");
 const helmet = require('helmet');
 const compression = require('compression');
 
-module.exports = function ({HomeRoutes, PatientRoutes, PersonalRoutes, ClinicRoutes}) {
+module.exports = function ({
+                               ClinicRoutes,
+                               ClinicHistoryRoutes,
+                               ExpedientRoutes,
+                               HomeRoutes,
+                               HospitalRoutes,
+                               PatientRoutes,
+                               OfficeClinicRoutes,
+                               OfficeHospitalRoutes,
+                               PatientHospitalRoutes,
+                               PersonalRoutes,
+                               PersonalTypeRoutes,
+                               SpecialtyRoutes,
+                               UserRoutes
+                           }) {
     const router = express.Router();
     const api = express.Router();
 
-    console.log(`Home Routers: ${HomeRoutes}`);
-
     api
-        .use(express.json)
+        .use(express.json())
         .use(cors())
         .use(helmet())
         .use(compression());
 
-    api.use('/clinic', ClinicRoutes);
+
+    api.use('/clinics/history', ClinicHistoryRoutes);
+    api.use('/clinics', ClinicRoutes);
+    api.use('/expedient', ExpedientRoutes);
     api.use('/home', HomeRoutes);
+    api.use('/hospitals', HospitalRoutes);
     api.use('/patient', PatientRoutes);
-    api.use('/personal', PersonalRoutes);
+    api.use('/office/clinic', OfficeClinicRoutes); //todo: review this paths
+    api.use('/office/hospital', OfficeHospitalRoutes); //todo: review this paths
+    api.use('/patients/hospital', PatientHospitalRoutes);
+    api.use('/perosnals/type', PersonalTypeRoutes);
+    api.use('/perosnals/specialty', SpecialtyRoutes);
+    api.use('/perosnals', PersonalRoutes);
+    api.use('/user', UserRoutes);
 
 
     router.use('/v1/api', api);

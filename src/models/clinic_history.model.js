@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 
 const ClinicHistorySchema = new Schema({
-    expedient: {type: Schema.Types.ObjectId, ref: 'expedient'},
-    createdBy: {type: Schema.Types.ObjectId, ref: 'personal'},
+    expedient: {type: Schema.Types.ObjectId, ref: 'Expedient', required: true, autopopulate: true},
+    createdBy: {type: Schema.Types.ObjectId, ref: 'Personal', required: true, autopopulate: true},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now},
     iteration: {type: Number, required: true},
@@ -11,8 +11,7 @@ const ClinicHistorySchema = new Schema({
     familyHeirs: {type: Object, required: true},
     pathologicalHistory: {type: Object, required: true},
     nonPathologicalHistory: {type: Object, required: true}
-});
+})
 
 ClinicHistorySchema.plugin(require('mongoose-autopopulate'));
-
-module.exports = mongoose.model('clinic_history', ClinicHistorySchema);
+module.exports = mongoose.model('ClinicHistory', ClinicHistorySchema);

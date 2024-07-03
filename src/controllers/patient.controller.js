@@ -5,6 +5,10 @@ class PatientController {
         _patientService = PatientService;
     }
 
+    index(req, res) {
+        res.send(_patientService.index());
+    }
+
     async get(req, res) {
         const {idPatient} = req.params;
         const patient = await _patientService.get(idPatient);
@@ -16,29 +20,16 @@ class PatientController {
         return res.send(patients);
     }
 
-    async getByName(req, res) {
-        const {name} = req.params;
-        const patient = await _patientService.getPatientByName(name);
-        return res.send(patient);
+    async create(req, res) {
+        const {body} = req;
+        const patient = await _patientService.create(body);
+        return res.status(201).send(patient);
     }
-
-    async getByLastname(req, res) {
-        const {lastname} = req.params;
-        const patient = await _patientService.getPatientByLastname(lastname);
-        return res.send(patient);
-    }
-
-    async getBySSN(req, res) {
-        const {ssn} = req.params;
-        const patient = await _patientService.getPatientBySSN(ssn);
-        return res.send(patient);
-    }
-
-    //create more queries to get by anu kind of field
 
     async update(req, res) {
-        const {body} = req;
         const {idPatient} = req.params;
+        const {body} = req;
+
         const patient = await _patientService.update(idPatient, body);
         return res.send(patient);
     }
@@ -49,6 +40,5 @@ class PatientController {
         return res.send(deletedPatient);
     }
 }
-
 
 module.exports = PatientController;

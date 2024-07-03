@@ -1,5 +1,4 @@
 const BaseRepository = require('./base.repository');
-
 let _clinic = null;
 
 class ClinicRepository extends BaseRepository {
@@ -8,9 +7,7 @@ class ClinicRepository extends BaseRepository {
         _clinic = Clinic;
     }
 
-    async getClinicByName(name) {
-        return await _clinic.findOne({ name });
-    }
 }
+
 
 module.exports = ClinicRepository;

@@ -1,8 +1,8 @@
-const Base = require('./base.service');
+const BaseService = require('./base.service');
 
 let _personalRepository = null;
 
-class PersonalService extends Base {
+class PersonalService extends BaseService {
     constructor({PersonalRepository}) {
         super(PersonalRepository);
         _personalRepository = PersonalRepository;
@@ -10,20 +10,8 @@ class PersonalService extends Base {
 
     index() {
         return {
-            message: 'Personal Service index',
+            message: 'Specialty Service Index',
         }
-    }
-
-    async getPersonalByName(name) {
-        return await _personalRepository.getPersonalByName(name);
-    }
-
-    async getPersonalByLastname(personal) {
-        return await _personalRepository.getPersonalByLastname(personal);
-    }
-
-    async getPersonalByProfessionalId(professionId) {
-        return await _personalRepository.getPersonalByProfessionalId(professionId);
     }
 }
 
