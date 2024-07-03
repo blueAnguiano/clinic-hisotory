@@ -7,6 +7,10 @@ class PatientRepository extends BaseRepository {
         super(Patient);
         _patient = Patient;
     }
+
+    async getBySNN(ssn) {
+        return await _patient.find({ssn: new RegExp(`.*${ssn}.*`)});
+    }
 }
 
 module.exports = PatientRepository;

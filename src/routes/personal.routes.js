@@ -8,6 +8,9 @@ module.exports = function ({PersonalController}) {
     //getters
     router.get('', PersonalController.getAll);
     router.get('/:idPersonal', PersonalController.get);
+    router.get('/search/by-professional/:idProfessional', PersonalController.getByProfessionalId);
+    router.get('/search/by-name/:name', PersonalController.getByName);
+    router.get('/search/by-state/:state', PersonalController.getByState);
 
     //posts
     router.post('/', PersonalController.create);

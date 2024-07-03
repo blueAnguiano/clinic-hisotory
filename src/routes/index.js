@@ -35,10 +35,10 @@ module.exports = function ({
     api.use('/expedient', ExpedientRoutes);
     api.use('/home', HomeRoutes);
     api.use('/hospitals', HospitalRoutes);
-    api.use('/patient', PatientRoutes);
+    api.use('/patients/hospital', PatientHospitalRoutes);
+    api.use('/patients', PatientRoutes);
     api.use('/office/clinic', OfficeClinicRoutes); //todo: review this paths
     api.use('/office/hospital', OfficeHospitalRoutes); //todo: review this paths
-    api.use('/patients/hospital', PatientHospitalRoutes);
     api.use('/perosnals/type', PersonalTypeRoutes);
     api.use('/perosnals/specialty', SpecialtyRoutes);
     api.use('/perosnals', PersonalRoutes);

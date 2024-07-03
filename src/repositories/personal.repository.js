@@ -7,6 +7,10 @@ class PersonalRepository extends BaseRepository {
         super(Personal);
         _personal = Personal;
     }
+
+    async getByProfessionalId(professionalId) {
+        return _personal.find({professionalId: new RegExp(`.*${professionalId}.*`)});
+    }
 }
 
 module.exports = PersonalRepository;

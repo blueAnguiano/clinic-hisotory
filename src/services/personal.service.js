@@ -13,6 +13,10 @@ class PersonalService extends BaseService {
             message: 'Specialty Service Index',
         }
     }
+
+    async getByProfessionalId(professionalId) {
+        return await _personalRepository.getByProfessionalId(professionalId);
+    }
 }
 
 module.exports = PersonalService;

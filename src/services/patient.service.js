@@ -13,6 +13,10 @@ class PatientService extends BaseService {
             message: 'Clinic Service Index',
         }
     }
+
+    async getBySNN(ssn) {
+        return await _patientRepository.getBySNN(ssn);
+    }
 }
 
 

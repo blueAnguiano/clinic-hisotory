@@ -20,6 +20,24 @@ class PersonalController {
         return res.send(personals);
     }
 
+    async getByProfessionalId(req, res) {
+        const {idProfessional} = req.params;
+        const personal = await _personalService.getByProfessionalId(idProfessional);
+        return res.send(personal);
+    }
+
+    async getByName(req, res) {
+        const {name} = req.params;
+        const personal = await _personalService.getByName(name);
+        return res.send(personal);
+    }
+
+    async getByState(req, res) {
+        const {state} = req.params;
+        const personal = await _personalService.getByState(state);
+        return res.send(personal);
+    }
+
     async create(req, res) {
         const {body} = req;
         const personal = await _personalService.create(body);

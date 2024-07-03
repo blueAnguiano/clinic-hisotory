@@ -20,6 +20,12 @@ class PatientController {
         return res.send(patients);
     }
 
+    async getBySNN(req, res) {
+        const {ssn} = req.params;
+        const patient = await _patientService.getBySNN(ssn);
+        return res.send(patient);
+    }
+
     async create(req, res) {
         const {body} = req;
         const patient = await _patientService.create(body);
