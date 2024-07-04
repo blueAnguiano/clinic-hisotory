@@ -9,6 +9,9 @@ module.exports = function ({PatientController}) {
     router.get('', PatientController.getAll);
     router.get('/:idPatient', PatientController.get);
     router.get('/search/by-security/:ssn', PatientController.getBySNN);
+    router.get('/search/by-name/:name', PatientController.getByName);
+    router.get('/search/by-clinic/:idClinic', PatientController.getByClinic);
+    router.get('/search/by-hospital/:state', PatientController.getByHospital);
 
     //posts
     router.post('/', PatientController.create);

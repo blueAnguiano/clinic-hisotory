@@ -37,8 +37,8 @@ module.exports = function ({
     api.use('/hospitals', HospitalRoutes);
     api.use('/patients/hospital', PatientHospitalRoutes);
     api.use('/patients', PatientRoutes);
-    api.use('/office/clinic', OfficeClinicRoutes); //todo: review this paths
-    api.use('/office/hospital', OfficeHospitalRoutes); //todo: review this paths
+    api.use('/office/clinic', OfficeClinicRoutes);
+    api.use('/office/hospital', OfficeHospitalRoutes);
     api.use('/perosnals/type', PersonalTypeRoutes);
     api.use('/perosnals/specialty', SpecialtyRoutes);
     api.use('/perosnals', PersonalRoutes);

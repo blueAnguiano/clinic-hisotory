@@ -11,6 +11,8 @@ module.exports = function ({PersonalController}) {
     router.get('/search/by-professional/:idProfessional', PersonalController.getByProfessionalId);
     router.get('/search/by-name/:name', PersonalController.getByName);
     router.get('/search/by-state/:state', PersonalController.getByState);
+    router.get('/search/by-clinic/:idClinic', PersonalController.getByClinic);
+    router.get('/search/by-hospital/:idClinic', PersonalController.getByHospital);
 
     //posts
     router.post('/', PersonalController.create);

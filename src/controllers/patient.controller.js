@@ -26,6 +26,24 @@ class PatientController {
         return res.send(patient);
     }
 
+    async getByName(req, res) {
+        const {name} = req.params;
+        const patient = await _patientService.getByName(name);
+        return res.send(patient);
+    }
+
+    async getByClinic(req, res) {
+        const {idClinic} = req.params;
+        const patient = await _patientService.getByClinic(idClinic);
+        return res.send(patient);
+    }
+
+    async getByHospital(req, res) {
+        const {idHospital} = req.params;
+        const patient = await _patientService.getByHospital(idHospital);
+        return res.send(patient);
+    }
+
     async create(req, res) {
         const {body} = req;
         const patient = await _patientService.create(body);

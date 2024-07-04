@@ -17,6 +17,14 @@ class PatientService extends BaseService {
     async getBySNN(ssn) {
         return await _patientRepository.getBySNN(ssn);
     }
+
+    async getByClinic(idClinic) {
+        return await _patientRepository.getByClinic(idClinic);
+    }
+
+    async getByHospital(idHospital) {
+        return await _patientRepository.getByHospital(idHospital);
+    }
 }
 
 

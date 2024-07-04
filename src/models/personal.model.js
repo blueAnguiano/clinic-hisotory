@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
+const {dateHelper} = require('../helpers');
+const {calculateAge} = dateHelper;
+
 const PersonalSchema = new Schema({
     professionalId: {type: String, required: true, unique: true},
     name: {type: String, required: true},
@@ -19,6 +22,16 @@ const PersonalSchema = new Schema({
     type: {type: Schema.Types.ObjectId, ref: 'PersonalType', required: true, autopopulate: true},
     specialty: {type: Schema.Types.ObjectId, ref: 'Specialty', required: true, autopopulate: true},
 });
+
+PersonalSchema.pre('save', function (next) {
+    const patient = this;
+
+    if(patient.isModified('birth')) {
+        patient.birth = calculateAge(patient.birth);
+    }
+
+    next();
+})
 
 PersonalSchema.plugin(require('mongoose-autopopulate'));
 module.exports = mongoose.model('Personal', PersonalSchema);

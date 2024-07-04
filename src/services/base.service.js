@@ -23,6 +23,10 @@ class BaseService {
         return this.repository.create(object);
     }
 
+    async update(id, object) {
+        return this.repository.update(id, object);
+    }
+
     async delete(id) {
         return this.repository.delete(id);
     }

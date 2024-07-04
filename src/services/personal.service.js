@@ -17,6 +17,14 @@ class PersonalService extends BaseService {
     async getByProfessionalId(professionalId) {
         return await _personalRepository.getByProfessionalId(professionalId);
     }
+
+    async getByClinic(idClinic) {
+        return await _personalRepository.getByClinic(idClinic);
+    }
+
+    async getByHospital(idHospital) {
+        return await _personalRepository.getByHospital(idHospital);
+    }
 }
 
 module.exports = PersonalService;

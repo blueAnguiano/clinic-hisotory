@@ -38,6 +38,18 @@ class PersonalController {
         return res.send(personal);
     }
 
+    async getByClinic(req, res) {
+        const {idClinic} = req.params;
+        const personal = await _personalService.getByClinic(idClinic);
+        return res.send(personal);
+    }
+
+    async getByHospital(req, res) {
+        const {idHospital} = req.params;
+        const personal = await _personalService.getByHospital(idHospital);
+        return res.send(personal);
+    }
+
     async create(req, res) {
         const {body} = req;
         const personal = await _personalService.create(body);
@@ -45,16 +57,16 @@ class PersonalController {
     }
 
     async update(req, res) {
-        const {idSpecialty} = req.params;
+        const {idPersonal} = req.params;
         const {body} = req;
 
-        const personal = await _personalService.update(idSpecialty, body);
+        const personal = await _personalService.update(idPersonal, body);
         return res.send(personal);
     }
 
     async delete(req, res) {
-        const {idSpecialty} = req.params;
-        const deletedPersonal = await _personalService.delete(idSpecialty);
+        const {idPersonal} = req.params;
+        const deletedPersonal = await _personalService.delete(idPersonal);
         return res.send(deletedPersonal);
     }
 }
