@@ -3,7 +3,8 @@ const { Schema } = mongoose;
 
 const ClinicHistorySchema = new Schema({
     expedient: {type: Schema.Types.ObjectId, ref: 'Expedient', required: true, autopopulate: true},
-    createdBy: {type: Schema.Types.ObjectId, ref: 'Personal', required: true, autopopulate: true},
+    createdBy: {type: Schema.Types.ObjectId, ref: 'User', autopopulate: true, required: true},
+    updatedBy: {type: Schema.Types.ObjectId, ref: 'User', autopopulate: true},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now},
     iteration: {type: Number, required: true},

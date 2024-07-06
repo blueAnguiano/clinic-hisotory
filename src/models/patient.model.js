@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-const {dateHelper} = require('../helpers');
-const {calculateAge} = dateHelper;
+const {DateHelper} = require('../helpers');
+const {calculateAge} = DateHelper;
 
 const PatientSchema = new Schema({
     name: {type: String, required: true},
@@ -18,20 +18,22 @@ const PatientSchema = new Schema({
     clinic: {type: Schema.Types.ObjectId, ref: 'clinic', required: true, autopopulate: true},
     room: {type: String, required: true},
     schedule: {type: String, required: true},
-    user: {type: Schema.Types.ObjectId, ref: 'User', required: true, autopopulate: true},
+    user: {type: Schema.Types.ObjectId, ref: 'User', autopopulate: true},
     isVerified: {type: Boolean, default: false},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now},
-    createdBy: {type: Schema.Types.ObjectId, ref: 'Personal', required: true, autopopulate: true},
+    createdBy: {type: Schema.Types.ObjectId, ref: 'User', autopopulate: true, required: true},
+    updatedBy: {type: Schema.Types.ObjectId, ref: 'User', autopopulate: true}
 })
 
 PatientSchema.pre('save', function (next) {
     const patient = this;
 
-    if(patient.isModified('birth')) {
-        patient.birth = calculateAge(patient.birth)
+    if(!patient.isModified('birth')) {
+        return next();
     }
 
+    patient.age = calculateAge(patient.birth)
     next();
 })
 

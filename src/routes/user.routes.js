@@ -15,7 +15,6 @@ module.exports = function ({UserController}) {
 
 
     //posts
-    router.post('/', UserController.create);
 
     //putters
     router.put('/:idUser', UserController.update);

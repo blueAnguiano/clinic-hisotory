@@ -1,8 +1,10 @@
 let _patientService = null;
+let _userService = null;
 
 class PatientController {
-    constructor({PatientService}) {
+    constructor({PatientService, UserService}) {
         _patientService = PatientService;
+        _userService = UserService;
     }
 
     index(req, res) {
@@ -46,6 +48,15 @@ class PatientController {
 
     async create(req, res) {
         const {body} = req;
+
+        //ask for user id
+        //todo: test this one
+        const user = await _userService.get(body.user);
+        if(user.role === 'sys admin') {
+            //error
+            return res.status(400).send({});
+        }
+
         const patient = await _patientService.create(body);
         return res.status(201).send(patient);
     }

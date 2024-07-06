@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 
 module.exports = function ({
+                               AuthRoutes,
                                ClinicRoutes,
                                ClinicHistoryRoutes,
                                ExpedientRoutes,
@@ -29,7 +30,6 @@ module.exports = function ({
         .use(helmet())
         .use(compression());
 
-
     api.use('/clinics/history', ClinicHistoryRoutes);
     api.use('/clinics', ClinicRoutes);
     api.use('/expedient', ExpedientRoutes);
@@ -42,6 +42,7 @@ module.exports = function ({
     api.use('/perosnals/type', PersonalTypeRoutes);
     api.use('/perosnals/specialty', SpecialtyRoutes);
     api.use('/perosnals', PersonalRoutes);
+    api.use('/user/auth', AuthRoutes);
     api.use('/user', UserRoutes);
 
 

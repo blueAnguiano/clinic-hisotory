@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-const {dateHelper} = require('../helpers');
-const {calculateAge} = dateHelper;
+const {DateHelper} = require('../helpers');
+const {calculateAge} = DateHelper;
 
 const PersonalSchema = new Schema({
     professionalId: {type: String, required: true, unique: true},
@@ -14,22 +14,27 @@ const PersonalSchema = new Schema({
     address: {type: String, required: true},
     state: {type: String, required: true},
     municipal: {type: String, required: true},
-    phone: {type: String, required: true},
+    phone: {type: String},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now},
-    createdBy: {type: Schema.Types.ObjectId, ref: 'Personal', required: true, autopopulate: true},
-    user: {type: Schema.Types.ObjectId, ref: 'User', required: true, autopopulate: true},
+    createdBy: {type: Schema.Types.ObjectId, ref: 'User', autopopulate: true},
+    updatedBy: {type: Schema.Types.ObjectId, ref: 'User', autopopulate: true},
+    entry: {type: Date, required: true},
+    end: {type: Date},
+    user: {type: Schema.Types.ObjectId, ref: 'User', autopopulate: true},
     type: {type: Schema.Types.ObjectId, ref: 'PersonalType', required: true, autopopulate: true},
     specialty: {type: Schema.Types.ObjectId, ref: 'Specialty', required: true, autopopulate: true},
 });
 
 PersonalSchema.pre('save', function (next) {
+    console.log('save');
     const patient = this;
 
-    if(patient.isModified('birth')) {
-        patient.birth = calculateAge(patient.birth);
+    if(!patient.isModified('birth')) {
+        return next();
     }
 
+    patient.age = calculateAge(patient.birth);
     next();
 })
 

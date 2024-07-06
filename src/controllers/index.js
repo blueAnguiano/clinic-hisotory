@@ -1,4 +1,5 @@
 module.exports = {
+    AuthController: require('./auth.controller'),
     ClinicController: require('./clinic.controller'),
     ClinicHistoryController: require('./clinic_history.controller'),
     ExpedientController: require('./expedient.controller'),

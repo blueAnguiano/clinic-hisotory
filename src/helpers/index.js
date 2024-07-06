@@ -1,3 +1,4 @@
 module.exports = {
-    dateHelper: require('./date.helpers'),
+    DateHelper: require('./date.helper'),
+    JwtHelper: require('./jwt.helper'),
 }

@@ -1,4 +1,5 @@
 module.exports = {
+    AuthRoutes: require('./auth.routes'),
     ClinicRoutes: require('./clinic.routes'),
     ClinicHistoryRoutes: require('./clinic_history.routes'),
     ExpedientRoutes: require('./expedient.routes'),

@@ -1,4 +1,5 @@
 module.exports = {
+    AuthService: require('./auth.service'),
     ClinicService: require('./clinic.service'),
     ClinicHistoryService: require('./clinic_history.service'),
     ExpedientService: require('./expedient.service'),

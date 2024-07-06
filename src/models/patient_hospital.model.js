@@ -6,10 +6,10 @@ const PatientHospitalSchema = new Schema({
     patient: {type: Schema.Types.ObjectId, ref: 'Patient', required: true, autopopulate: true},
     admission: {type: Date, default: Date.now},
     egression: {type: Date},
-    room: {type: String, required: true},
-    level: {type: String, required: true},
-    createdBy: {type: Schema.Types.ObjectId, ref: 'Personal', required: true, autopopulate: true},
-    updatedBy: {type: Schema.Types.ObjectId, ref: 'Personal', required: true, autopopulate: true},
+    room: {type: String},
+    level: {type: String},
+    createdBy: {type: Schema.Types.ObjectId, ref: 'User', required: true, autopopulate: true},
+    updatedBy: {type: Schema.Types.ObjectId, ref: 'User', autopopulate: true}
 });
 
 PatientHospitalSchema.plugin(require('mongoose-autopopulate'));

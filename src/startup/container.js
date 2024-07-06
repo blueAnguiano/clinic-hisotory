@@ -7,6 +7,7 @@ const config = require('../config');
 
 //Service
 const {
+    AuthService,
     ClinicService,
     ClinicHistoryService,
     ExpedientService,
@@ -24,6 +25,7 @@ const {
 
 //Controllers
 const {
+    AuthController,
     ClinicController,
     ClinicHistoryController,
     ExpedientController,
@@ -41,6 +43,7 @@ const {
 
 //Routes
 const {
+    AuthRoutes,
     ClinicRoutes,
     ClinicHistoryRoutes,
     ExpedientRoutes,
@@ -109,6 +112,7 @@ container.register({
     Specialty: asValue(Specialty),
     User: asValue(User),
     //Services
+    AuthService: asClass(AuthService).singleton(),
     ClinicService: asClass(ClinicService).singleton(),
     ClinicHistoryService: asClass(ClinicHistoryService).singleton(),
     ExpedientService: asClass(ExpedientService).singleton(),
@@ -123,6 +127,7 @@ container.register({
     SpecialtyService: asClass(SpecialtyService).singleton(),
     UserService: asClass(UserService).singleton(),
     //Controllers
+    AuthController: asClass(AuthController).singleton(),
     ClinicController: asClass(ClinicController).singleton(),
     ClinicHistoryController: asClass(ClinicHistoryController).singleton(),
     ExpedientController: asClass(ExpedientController).singleton(),
@@ -150,6 +155,7 @@ container.register({
     SpecialtyRepository: asClass(SpecialtyRepository).singleton(),
     UserRepository: asClass(UserRepository).singleton(),
     //Routes
+    AuthRoutes: asFunction(AuthRoutes).singleton(),
     ClinicRoutes: asFunction(ClinicRoutes).singleton(),
     ClinicHistoryRoutes: asFunction(ClinicHistoryRoutes).singleton(),
     ExpedientRoutes: asFunction(ExpedientRoutes).singleton(),
