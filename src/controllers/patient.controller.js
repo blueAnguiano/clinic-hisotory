@@ -2,77 +2,105 @@ let _patientService = null;
 let _userService = null;
 
 class PatientController {
-    constructor({PatientService, UserService}) {
+    constructor({PatientService}) {
         _patientService = PatientService;
-        _userService = UserService;
     }
 
     index(req, res) {
         res.send(_patientService.index());
     }
 
-    async get(req, res) {
-        const {idPatient} = req.params;
-        const patient = await _patientService.get(idPatient);
-        return res.send(patient);
+    async get(req, res, next) {
+        try {
+            const {idPatient} = req.params;
+            const patient = await _patientService.get(idPatient);
+            return res.send(patient);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async getAll(req, res) {
-        const patients = await _patientService.getAll();
-        return res.send(patients);
+    async getAll(req, res, next) {
+        try {
+            const patients = await _patientService.getAll();
+            return res.send(patients);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async getBySNN(req, res) {
-        const {ssn} = req.params;
-        const patient = await _patientService.getBySNN(ssn);
-        return res.send(patient);
+    async getBySNN(req, res, next) {
+        try {
+            const {ssn} = req.params;
+            const patient = await _patientService.getBySNN(ssn);
+            return res.send(patient);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async getByName(req, res) {
-        const {name} = req.params;
-        const patient = await _patientService.getByName(name);
-        return res.send(patient);
+    async getByName(req, res, next) {
+        try {
+            const {name} = req.params;
+            const patient = await _patientService.getByName(name);
+            return res.send(patient);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async getByClinic(req, res) {
-        const {idClinic} = req.params;
-        const patient = await _patientService.getByClinic(idClinic);
-        return res.send(patient);
+    async getByClinic(req, res, next) {
+        try {
+            const {idClinic} = req.params;
+            const patient = await _patientService.getByClinic(idClinic);
+            return res.send(patient);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async getByHospital(req, res) {
-        const {idHospital} = req.params;
-        const patient = await _patientService.getByHospital(idHospital);
-        return res.send(patient);
+    async getByHospital(req, res, next) {
+        try {
+            const {idHospital} = req.params;
+            const patient = await _patientService.getByHospital(idHospital);
+            return res.send(patient);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async create(req, res) {
-        const {body} = req;
+    async create(req, res, next) {
+        try {
+            const {body} = req;
 
-        //ask for user id
-        //todo: test this one
-        const user = await _userService.get(body.user);
-        if(user.role === 'sys admin') {
-            //error
-            return res.status(400).send({});
+            const patient = await _patientService.create(body);
+            return res.status(201).send(patient);
+        } catch (error) {
+            return next(error);
         }
 
-        const patient = await _patientService.create(body);
-        return res.status(201).send(patient);
     }
 
-    async update(req, res) {
-        const {idPatient} = req.params;
-        const {body} = req;
+    async update(req, res, next) {
+        try {
+            const {idPatient} = req.params;
+            const {body} = req;
 
-        const patient = await _patientService.update(idPatient, body);
-        return res.send(patient);
+            const patient = await _patientService.update(idPatient, body);
+            return res.send(patient);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async delete(req, res) {
-        const {idPatient} = req.params;
-        const deletedPatient = await _patientService.delete(idPatient);
-        return res.send(deletedPatient);
+    async delete(req, res, next) {
+        try {
+            const {idPatient} = req.params;
+            const deletedPatient = await _patientService.delete(idPatient);
+            return res.send(deletedPatient);
+        } catch (error) {
+            return next(error);
+        }
     }
 }
 

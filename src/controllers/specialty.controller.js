@@ -9,35 +9,55 @@ class SpecialtyController {
         res.send(_specialtyService.index());
     }
 
-    async get(req, res) {
-        const {idSpecialty} = req.params;
-        const specialty = await _specialtyService.get(idSpecialty);
-        return res.send(specialty);
+    async get(req, res, next) {
+        try {
+            const {idSpecialty} = req.params;
+            const specialty = await _specialtyService.get(idSpecialty);
+            return res.send(specialty);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async getAll(req, res) {
-        const specialties = await _specialtyService.getAll();
-        return res.send(specialties);
+    async getAll(req, res, next) {
+        try {
+            const specialties = await _specialtyService.getAll();
+            return res.send(specialties);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async create(req, res) {
-        const {body} = req;
-        const specialty = await _specialtyService.create(body);
-        return res.status(201).send(specialty);
+    async create(req, res, next) {
+        try {
+            const {body} = req;
+            const specialty = await _specialtyService.create(body);
+            return res.status(201).send(specialty);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async update(req, res) {
-        const {idSpecialty} = req.params;
-        const {body} = req;
+    async update(req, res, next) {
+        try {
+            const {idSpecialty} = req.params;
+            const {body} = req;
 
-        const specialty = await _specialtyService.update(idSpecialty, body);
-        return res.send(specialty);
+            const specialty = await _specialtyService.update(idSpecialty, body);
+            return res.send(specialty);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async delete(req, res) {
-        const {idSpecialty} = req.params;
-        const deletedSpecialty = await _specialtyService.delete(idSpecialty);
-        return res.send(deletedSpecialty);
+    async delete(req, res, next) {
+        try {
+            const {idSpecialty} = req.params;
+            const deletedSpecialty = await _specialtyService.delete(idSpecialty);
+            return res.send(deletedSpecialty);
+        }catch(error) {
+            return next(error);
+        }
     }
 }
 

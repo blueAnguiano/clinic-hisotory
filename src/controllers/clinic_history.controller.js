@@ -9,35 +9,55 @@ class ClinicHistoryController {
         res.send(_clinicHistoryService.index());
     }
 
-    async get(req, res) {
-        const {idClinicHistory} = req.params
-        const clinicHistory = await _clinicHistoryService.get(idClinicHistory);
-        return res.send(clinicHistory);
+    async get(req, res, next) {
+        try {
+            const {idClinicHistory} = req.params
+            const clinicHistory = await _clinicHistoryService.get(idClinicHistory);
+            return res.send(clinicHistory);
+        } catch (error) {
+            return next(error)
+        }
     }
 
-    async getAll(req, res) {
-        const clinicHistories = await _clinicHistoryService.getAll();
-        return res.send(clinicHistories);
+    async getAll(req, res, next) {
+        try {
+            const clinicHistories = await _clinicHistoryService.getAll();
+            return res.send(clinicHistories);
+        } catch (error) {
+            return next(error)
+        }
     }
 
-    async create(req, res) {
-        const {body} = req;
-        const clinicHistory = await _clinicHistoryService.create(body);
-        return res.status(201).send(clinicHistory);
+    async create(req, res, next) {
+        try {
+            const {body} = req;
+            const clinicHistory = await _clinicHistoryService.create(body);
+            return res.status(201).send(clinicHistory);
+        } catch (error) {
+            return next(error)
+        }
     }
 
-    async update(req, res) {
-        const {idClinicHistory} = req.params;
-        const {body} = req;
+    async update(req, res, next) {
+        try {
+            const {idClinicHistory} = req.params;
+            const {body} = req;
 
-        const clinicHistory = await _clinicHistoryService.update(idClinicHistory, body);
-        return res.send(clinicHistory);
+            const clinicHistory = await _clinicHistoryService.update(idClinicHistory, body);
+            return res.send(clinicHistory);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async delete(req, res) {
-        const {idClinicHistory} = req.params;
-        const deletedClinicHistory = await _clinicHistoryService.delete(idClinicHistory);
-        return res.send(deletedClinicHistory);
+    async delete(req, res, next) {
+        try {
+            const {idClinicHistory} = req.params;
+            const deletedClinicHistory = await _clinicHistoryService.delete(idClinicHistory);
+            return res.send(deletedClinicHistory);
+        } catch (error) {
+            return next(error);
+        }
     }
 
 }

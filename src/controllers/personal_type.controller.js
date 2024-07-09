@@ -9,35 +9,55 @@ class PersonalTypeController {
         res.send(_personalTypeService.index());
     }
 
-    async get(req, res) {
-        const {idPersonalType} = req.params;
-        const personalType = await _personalTypeService.get(idPersonalType);
-        return res.send(personalType);
+    async get(req, res, next) {
+        try {
+            const {idPersonalType} = req.params;
+            const personalType = await _personalTypeService.get(idPersonalType);
+            return res.send(personalType);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async getAll(req, res) {
-        const personalTypes = await _personalTypeService.getAll();
-        return res.send(personalTypes);
+    async getAll(req, res, next) {
+        try {
+            const personalTypes = await _personalTypeService.getAll();
+            return res.send(personalTypes);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async create(req, res) {
-        const {body} = req;
-        const personalType = await _personalTypeService.create(body);
-        return res.status(201).send(personalType);
+    async create(req, res, next) {
+        try {
+            const {body} = req;
+            const personalType = await _personalTypeService.create(body);
+            return res.status(201).send(personalType);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async update(req, res) {
-        const {idPersonalType} = req.params;
-        const {body} = req;
+    async update(req, res, next) {
+        try {
+            const {idPersonalType} = req.params;
+            const {body} = req;
 
-        const personalType = await _personalTypeService.update(idPersonalType, body);
-        return res.send(personalType);
+            const personalType = await _personalTypeService.update(idPersonalType, body);
+            return res.send(personalType);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async delete(req, res) {
-        const {idPersonalType} = req.params;
-        const deletedPersonalType = await _personalTypeService.delete(idPersonalType);
-        return res.send(deletedPersonalType);
+    async delete(req, res, next) {
+        try {
+            const {idPersonalType} = req.params;
+            const deletedPersonalType = await _personalTypeService.delete(idPersonalType);
+            return res.send(deletedPersonalType);
+        } catch (error) {
+            return next(error);
+        }
     }
 
 }

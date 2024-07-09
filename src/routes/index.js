@@ -5,6 +5,8 @@ const cors = require("cors");
 const helmet = require('helmet');
 const compression = require('compression');
 
+const {errorHandler} = require("../middlewares");
+
 module.exports = function ({
                                AuthRoutes,
                                ClinicRoutes,
@@ -44,6 +46,8 @@ module.exports = function ({
     api.use('/perosnals', PersonalRoutes);
     api.use('/user/auth', AuthRoutes);
     api.use('/user', UserRoutes);
+
+    api.use(errorHandler);
 
 
     router.use('/v1/api', api);

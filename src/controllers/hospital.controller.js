@@ -9,47 +9,75 @@ class HospitalController {
         res.send(_hospitalService.index());
     }
 
-    async get(req, res) {
-        const {idHospital} = req.params;
-        const hospital = await _hospitalService.get(idHospital);
-        return res.send(hospital);
+    async get(req, res, next) {
+        try {
+            const {idHospital} = req.params;
+            const hospital = await _hospitalService.get(idHospital);
+            return res.send(hospital);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async getAll(req, res) {
-        const hospitals = await _hospitalService.getAll();
-        return res.send(hospitals);
+    async getAll(req, res, next) {
+        try {
+            const hospitals = await _hospitalService.getAll();
+            return res.send(hospitals);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async getByName(req, res) {
-        const {name} = req.params;
-        const hospital = await _hospitalService.getByName(name);
-        return res.send(hospital);
+    async getByName(req, res, next) {
+        try {
+            const {name} = req.params;
+            const hospital = await _hospitalService.getByName(name);
+            return res.send(hospital);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async getByState(req, res) {
-        const {state} = req.params;
-        const hospital = await _hospitalService.getByState(state);
-        return res.send(hospital);
+    async getByState(req, res, next) {
+        try {
+            const {state} = req.params;
+            const hospital = await _hospitalService.getByState(state);
+            return res.send(hospital);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async create(req, res) {
-        const {body} = req;
-        const hospital = await _hospitalService.create(body);
-        return res.status(201).send(hospital);
+    async create(req, res, next) {
+        try {
+            const {body} = req;
+            const hospital = await _hospitalService.create(body);
+            return res.status(201).send(hospital);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async update(req, res) {
-        const {idHospital} = req.params;
-        const {body} = req;
+    async update(req, res, next) {
+        try {
+            const {idHospital} = req.params;
+            const {body} = req;
 
-        const hospital = await _hospitalService.update(idHospital, body);
-        return res.send(hospital);
+            const hospital = await _hospitalService.update(idHospital, body);
+            return res.send(hospital);
+        } catch (error) {
+            return next(error);
+        }
     }
 
-    async delete(req, res) {
-        const {idHospital} = req.params;
-        const deletedHospital = await _hospitalService.delete(idHospital);
-        return res.send(deletedHospital);
+    async delete(req, res, next) {
+        try {
+            const {idHospital} = req.params;
+            const deletedHospital = await _hospitalService.delete(idHospital);
+            return res.send(deletedHospital);
+        } catch (error) {
+            return next(error);
+        }
     }
 }
 
