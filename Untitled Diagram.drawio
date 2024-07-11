@@ -1,32 +1,32 @@
-<mxfile host="app.diagrams.net" modified="2024-07-11T17:36:58.033Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="iEwRaLfCPoc-gk1RWVZu" version="24.6.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-07-11T17:38:05.798Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="lUh_mZEMoxk83cGPA9UI" version="24.6.4" type="github">
   <diagram name="Page-1" id="AnGsQkfZJKU8nPulyIpE">
     <mxGraphModel dx="1050" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="2" value="Usuario" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26.25714329310826;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;" parent="1" vertex="1">
-          <mxGeometry x="8" y="8" width="358" height="192" as="geometry" />
+        <mxCell id="2" value="User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26.25714329310826;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="160" y="80" width="358" height="190.25714329310824" as="geometry" />
         </mxCell>
         <mxCell id="3" value="nombre: varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
-          <mxGeometry y="26" width="358" height="26" as="geometry" />
+          <mxGeometry y="26.25714329310826" width="358" height="26" as="geometry" />
         </mxCell>
         <mxCell id="4" value="apellido: varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
-          <mxGeometry y="53" width="358" height="26" as="geometry" />
+          <mxGeometry y="52.25714329310826" width="358" height="26" as="geometry" />
         </mxCell>
         <mxCell id="5" value="email: varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
-          <mxGeometry y="79" width="358" height="26" as="geometry" />
+          <mxGeometry y="78.25714329310826" width="358" height="26" as="geometry" />
         </mxCell>
         <mxCell id="6" value="telefono: varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
-          <mxGeometry y="105" width="358" height="26" as="geometry" />
+          <mxGeometry y="104.25714329310826" width="358" height="26" as="geometry" />
         </mxCell>
         <mxCell id="7" value="tipo_usuario: varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
-          <mxGeometry y="131" width="358" height="26" as="geometry" />
+          <mxGeometry y="130.25714329310824" width="358" height="26" as="geometry" />
         </mxCell>
         <mxCell id="8" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="2" vertex="1">
-          <mxGeometry y="158" width="358" height="8" as="geometry" />
+          <mxGeometry y="156.25714329310824" width="358" height="8" as="geometry" />
         </mxCell>
         <mxCell id="9" value="&amp;lt;&amp;lt;(PK, #FF5733) : &amp;gt;&amp;gt; id_usuario: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
-          <mxGeometry y="166" width="358" height="26" as="geometry" />
+          <mxGeometry y="164.25714329310824" width="358" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
