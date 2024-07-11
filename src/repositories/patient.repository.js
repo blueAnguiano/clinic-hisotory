@@ -1,13 +1,12 @@
 const BaseRepository = require('./base.repository');
 
-const {PatientHospital} = require('../models');
-
 let _patient = null;
 
 class PatientRepository extends BaseRepository {
-    constructor({Patient}) {
+    constructor({Patient, PatientHospital}) {
         super(Patient);
         _patient = Patient;
+        this.patientHospital = PatientHospital;
     }
 
     async getBySNN(ssn) {
@@ -19,7 +18,7 @@ class PatientRepository extends BaseRepository {
     }
 
     async getByHospital(idHospital) {
-        const patients = await PatientHospital.find({hospital: idHospital});
+        const patients = await this.patientHospital.find({hospital: idHospital});
         const idPatients = patients.map((patient) => patient.id);
         return await _patient.find({_id: {$in: idPatients}});
     }
